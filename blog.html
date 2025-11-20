@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Boom & Scissor Lift Rental Blog – Coimbatore</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style>
+      :root {
+        --brand-brown: #705033;
+        --bg-page: #ffffff;
+        --bg-soft: #f7f2ec;
+        --border-soft: #e4ded5;
+        --text-main: #292524;
+        --text-muted: #7a7068;
+        --accent-soft: #f3e4d4;
+        --radius-lg: 16px;
+        --shadow-soft: 0 10px 22px rgba(0, 0, 0, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: system-ui, sans-serif;
+        background: var(--bg-page);
+        color: var(--text-main);
+      }
+
+      /* sticky navbar wrapper */
+      #navbar {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: #ffffff;
+      }
+
+      main {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 16px 56px;
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin-top: 0;
+      }
+
+      .section-title {
+        font-size: clamp(1.4rem, 2.4vw, 1.8rem);
+        margin-bottom: 6px;
+        color: var(--brand-brown);
+      }
+
+      .section-subtitle {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+      }
+
+      /* ========== HERO ========== */
+
+      .hero-wrapper {
+        padding: 56px 0 30px;
+      }
+
+      .hero-inner {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 16px;
+      }
+
+      .hero-kicker {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+
+      .hero-title {
+        font-size: clamp(1.9rem, 3vw, 2.4rem);
+        color: var(--brand-brown);
+        margin-bottom: 8px;
+      }
+
+      .hero-text {
+        max-width: 580px;
+        font-size: 0.96rem;
+        color: var(--text-main);
+      }
+
+      /* ========== BLOG CARDS ========== */
+
+      .section-block {
+        background: #ffffff;
+        padding: 26px 20px;
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--border-soft);
+        margin-bottom: 48px;
+        box-shadow: var(--shadow-soft);
+      }
+
+      .blog-grid {
+        margin-top: 18px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .blog-card {
+        border-radius: 14px;
+        border: 1px solid var(--border-soft);
+        padding: 0 0 16px;
+        background: #ffffff;
+        box-shadow: var(--shadow-soft);
+        display: flex;
+        flex-direction: column;
+        font-size: 0.92rem;
+        overflow: hidden;
+      }
+
+      .blog-image {
+        width: 100%;
+        height: 450px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      /* separate image per post – update file names as you like */
+      .blog-image-1 {
+        background-image: url("./images/BOOM3.jpg");
+      }
+      .blog-image-2 {
+        background-image: url("./images/BOOM4.jpg");
+      }
+      .blog-image-3 {
+        background-image: url("./images/BOOM5.jpg");
+      }
+      .blog-image-4 {
+        background-image: url("./images/SCI-01.jpg");
+      }
+
+      .blog-body {
+        padding: 14px 14px 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .blog-tag {
+        display: inline-flex;
+        align-items: center;
+        padding: 2px 9px;
+        border-radius: 999px;
+        background: var(--bg-soft);
+        color: var(--brand-brown);
+        font-size: 0.74rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .blog-title {
+        font-size: 1.02rem;
+        font-weight: 600;
+        color: var(--brand-brown);
+      }
+
+      .blog-summary {
+        font-size: 0.9rem;
+        color: var(--text-main);
+      }
+
+      .blog-list {
+        margin: 6px 0 0;
+        padding-left: 18px;
+        font-size: 0.85rem;
+        color: var(--text-main);
+      }
+
+      .blog-list li {
+        margin-bottom: 2px;
+      }
+
+      /* ========== REVEAL ANIMATION ========== */
+
+      .reveal-left,
+      .reveal-right {
+        opacity: 0;
+        transform: translateX(26px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+      }
+
+      .reveal-left {
+        transform: translateX(-26px);
+      }
+
+      .reveal-visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      /* ========== RESPONSIVE ========== */
+
+      @media (max-width: 900px) {
+        .blog-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+
+      @media (max-width: 640px) {
+        main {
+          padding-inline: 12px;
+        }
+
+        .hero-inner {
+          padding-inline: 12px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAVBAR FROM OUTSIDE -->
+    <div id="navbar"></div>
+
+    <!-- HERO -->
+    <header class="hero-wrapper reveal-right">
+      <div class="hero-inner">
+        <div class="hero-kicker">Blog · Coimbatore</div>
+        <h1 class="hero-title">Boom & scissor lift rental insights</h1>
+        <p class="hero-text">
+          Short, practical posts to help you choose the right access equipment,
+          plan safety, and understand typical uses across Coimbatore industries.
+        </p>
+      </div>
+    </header>
+
+    <main>
+      <!-- BLOG GRID (2 CARDS PER ROW) -->
+      <section class="section-block reveal-left">
+        <div class="section-subtitle">Articles</div>
+        <h2 class="section-title">Latest posts</h2>
+
+        <div class="blog-grid">
+          <!-- Post 1 -->
+          <article class="blog-card">
+            <div class="blog-image blog-image-1"></div>
+            <div class="blog-body">
+              <span class="blog-tag">Boom lift · guide</span>
+              <h3 class="blog-title">
+                How to Choose the Right Boom Lift for Your Work in Coimbatore
+              </h3>
+              <p class="blog-summary">
+                Choosing the right boom lift depends on height, area space,
+                ground surface, and power supply. In Coimbatore, most
+                construction and maintenance works need 30–60&nbsp;ft diesel
+                boom lifts, while indoor tasks need electric models.
+              </p>
+              <ul class="blog-list">
+                <li>Articulated vs. telescopic boom lifts</li>
+                <li>When to use diesel type</li>
+                <li>Indoor requirements in factories & malls</li>
+                <li>Permit & safety checklist</li>
+                <li>Rental availability in Coimbatore</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Post 2 -->
+          <article class="blog-card">
+            <div class="blog-image blog-image-2"></div>
+            <div class="blog-body">
+              <span class="blog-tag">Boom lift · uses</span>
+              <h3 class="blog-title">
+                Top Uses of Boom Lifts in Coimbatore Industries
+              </h3>
+              <p class="blog-summary">
+                Boom lifts are widely used in Coimbatore for industrial
+                maintenance and electrical installations. They replace
+                scaffolding and offer faster, safer access to height.
+              </p>
+              <ul class="blog-list">
+                <li>Electrical / HVAC installation</li>
+                <li>Factory maintenance & shutdown work</li>
+                <li>Warehouse setup & racking</li>
+                <li>Construction & building elevation work</li>
+                <li>Event lighting, signage & branding</li>
+                <li>Solar panel installation at height</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Post 3 -->
+          <article class="blog-card">
+            <div class="blog-image blog-image-3"></div>
+            <div class="blog-body">
+              <span class="blog-tag">Boom lift · safety</span>
+              <h3 class="blog-title">
+                Safety Checklist Before Renting a Boom Lift in Coimbatore
+              </h3>
+              <p class="blog-summary">
+                Before renting a boom lift, checking machine condition and
+                operator safety is essential. Many accidents can be avoided with
+                a simple, consistent checklist.
+              </p>
+              <ul class="blog-list">
+                <li>Pre-dispatch inspection and basic checks</li>
+                <li>Load test & stabilizer / outriggers check</li>
+                <li>Operator certification & briefing</li>
+                <li>Site ground level and access test</li>
+                <li>PPE – helmet, harness, safety boots</li>
+                <li>Emergency stop button & controls test</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Post 4 -->
+          <article class="blog-card">
+            <div class="blog-image blog-image-4"></div>
+            <div class="blog-body">
+              <span class="blog-tag">Scissor lift · guide</span>
+              <h3 class="blog-title">
+                Scissor Lift Rental Guide for Indoor Works in Coimbatore
+              </h3>
+              <p class="blog-summary">
+                Electric scissor lifts are ideal for malls, warehouses, and
+                factories because they run with zero emissions and low noise,
+                making them suitable for closed indoor environments.
+              </p>
+              <ul class="blog-list">
+                <li>Warehouse racking & mezzanine work</li>
+                <li>Lighting & sign board maintenance</li>
+                <li>Indoor painting & high-level cleaning</li>
+                <li>Hotel / showroom maintenance</li>
+                <li>Event & exhibition setup</li>
+                <li>
+                  Tip: choose 19&nbsp;ft or 26&nbsp;ft electric scissor lift
+                  for narrow indoor spaces
+                </li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER FROM OUTSIDE -->
+    <div id="footer"></div>
+
+    <script>
+      // load navbar & footer from external files
+      function loadFragment(id, file) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        fetch(file)
+          .then(function (r) {
+            return r.text();
+          })
+          .then(function (h) {
+            el.innerHTML = h;
+          });
+      }
+
+      loadFragment("navbar", "navbar.html");
+      loadFragment("footer", "footer.html");
+
+      // reveal-on-scroll (left / right)
+      document.addEventListener("DOMContentLoaded", function () {
+        var revealEls = [].slice.call(
+          document.querySelectorAll(".reveal-left, .reveal-right")
+        );
+
+        if ("IntersectionObserver" in window) {
+          var obs = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("reveal-visible");
+                  obs.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.2 }
+          );
+
+          revealEls.forEach(function (el) {
+            obs.observe(el);
+          });
+        } else {
+          revealEls.forEach(function (el) {
+            el.classList.add("reveal-visible");
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

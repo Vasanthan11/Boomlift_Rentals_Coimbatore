@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Boomlift Rentals Coimbatore – Boom & Scissor Lift Rental</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style>
+      :root {
+        --brand-brown: #705033;
+        --bg-page: #ffffff;
+        --bg-soft: #f7f2ec;
+        --border-soft: #e4ded5;
+        --text-main: #292524;
+        --text-muted: #7a7068;
+        --accent-soft: #f3e4d4;
+        --radius-lg: 16px;
+        --shadow-soft: 0 10px 22px rgba(0, 0, 0, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        background: var(--bg-page);
+        color: var(--text-main);
+      }
+
+      #navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #ffffff;   /* prevents content showing behind while scrolling */
+}
+
+      main {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 16px 56px;
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin-top: 0;
+      }
+
+      .section-title {
+        font-size: clamp(1.4rem, 2.4vw, 1.8rem);
+        margin-bottom: 6px;
+        color: var(--brand-brown);
+      }
+
+      .section-subtitle {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+      }
+
+      /* ================= HERO ================= */
+
+      .hero-wrapper {
+        position: relative;
+        min-height: 80vh;
+        overflow: hidden;
+        background: #000; /* fallback if image fails */
+        margin-bottom: 40px;
+      }
+
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background-image: url("./images/main.jpg"); /* <-- put your image here */
+        background-size: cover;
+        background-position: center;
+        filter: brightness(0.6) contrast(1.05);
+      }
+
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+            circle at top,
+            rgba(0, 0, 0, 0.4),
+            transparent 20%
+          ),
+          linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.15),
+            rgba(0, 0, 0, 0.45)
+          );
+      }
+
+      .hero-center-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 80px 16px;
+        min-height: 70vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .hero-eyebrow {
+        font-size: 0.8rem;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: #f5eae0;
+        margin-bottom: 8px;
+      }
+
+      .hero-title {
+        font-size: clamp(2.1rem, 3.4vw, 2.8rem);
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 12px;
+      }
+
+      .hero-subtitle {
+        font-size: 1rem;
+        max-width: 520px;
+        margin: 0 auto 20px;
+        color: #f3e4d4;
+      }
+
+      .btn-primary {
+        display: inline-block;
+        padding: 10px 22px;
+        border-radius: 999px;
+        background: var(--brand-brown);
+        color: #ffffff;
+        border: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+        text-decoration: none;
+        cursor: pointer;
+        box-shadow: 0 10px 22px rgba(112, 80, 51, 0.4);
+      }
+
+      .btn-primary:hover {
+        background: #5b3f27;
+        box-shadow: 0 12px 26px rgba(112, 80, 51, 0.5);
+      }
+
+      /* ============== GENERIC SECTIONS ============== */
+
+      .sections {
+        margin-top: 30px;
+      }
+
+      .section-block {
+        margin-bottom: 48px;
+        padding: 26px 20px;
+        border-radius: var(--radius-lg);
+        background: #ffffff;
+        border: 1px solid var(--border-soft);
+        box-shadow: var(--shadow-soft);
+      }
+
+      /* ============ SERVICES (CENTERED HEADER + LARGE CARDS) ============ */
+
+      .services-section-center {
+        text-align: center;
+      }
+
+      .services-header {
+        max-width: 720px;
+        margin: 0 auto 20px;
+      }
+
+      .services-section-center .services-pill {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .services-grid-cards {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .services-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 13px;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--brand-brown);
+        font-size: 0.8rem;
+        margin-top: 12px;
+      }
+
+      .services-pill-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        background: var(--brand-brown);
+      }
+
+      .service-card-large {
+        background: #ffffff;
+        border-radius: 14px;
+        padding: 14px 14px 16px;
+        border: 1px solid var(--border-soft);
+        font-size: 0.9rem;
+        text-align: left;
+      }
+
+      .service-card-title {
+        font-size: 0.98rem;
+        font-weight: 600;
+        margin-bottom: 6px;
+        color: var(--brand-brown);
+      }
+
+      .service-card-large p {
+        margin: 0;
+        color: var(--text-main);
+        line-height: 1.45;
+      }
+
+      /* ============ WHY CHOOSE US – FULL-WIDTH DARK BAND ============ */
+
+      .section-why {
+        position: relative;
+        padding: 34px 0 40px;
+        color: #ffffff;
+        overflow: hidden;
+      }
+
+      .section-why::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        left: 50%;
+        width: 100vw;
+        transform: translateX(-50%);
+        background: var(--brand-brown);
+        z-index: -1;
+      }
+
+      .section-why-inner {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 16px;
+      }
+
+      .section-why .section-title {
+        color: #ffffff;
+      }
+
+      .section-why .section-subtitle {
+        color: #f5eae0;
+      }
+
+      .why-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr);
+        gap: 24px;
+        align-items: center;
+        margin-top: 14px;
+      }
+
+      .why-image {
+        border-radius: 18px;
+        min-height: 220px;
+        background-image: url("./images/second.webp"); /* <-- your image */
+        background-size: cover;
+        background-position: center;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .why-image::after {
+        content: "Coimbatore Projects";
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 0.7rem;
+        background: rgba(255, 255, 255, 0.96);
+        color: var(--brand-brown);
+      }
+
+      .why-text {
+        font-size: 0.9rem;
+        color: #fff7ee;
+      }
+
+      .why-features {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px 20px;
+        margin-top: 16px;
+      }
+
+      .why-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 0.9rem;
+        color: #ffffff;
+      }
+
+      .why-icon {
+        width: 22px;
+        height: 22px;
+        border-radius: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.7rem;
+        font-weight: 600;
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      /* ============ INDUSTRIES ============ */
+
+      .industries-grid {
+        margin-top: 18px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .industry-card {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 12px 11px;
+        border: 1px solid var(--border-soft);
+        font-size: 0.86rem;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .industry-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--accent-soft);
+        color: var(--brand-brown);
+        font-size: 0.7rem;
+        font-weight: 600;
+      }
+
+      .industry-title {
+        font-weight: 600;
+        color: var(--brand-brown);
+      }
+
+      .industry-text {
+        color: var(--text-main);
+        font-size: 0.82rem;
+      }
+
+      /* ============ GALLERY – FULL-WIDTH DARK BAND ============ */
+
+      .section-gallery {
+        position: relative;
+        padding: 34px 0 40px;
+        color: #ffffff;
+        overflow: hidden;
+      }
+
+      .section-gallery::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        left: 50%;
+        width: 100vw;
+        transform: translateX(-50%);
+        background: #3b332d;
+        z-index: -1;
+      }
+
+      .section-gallery-inner {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 16px;
+      }
+
+      .section-gallery .section-title {
+        color: #ffffff;
+      }
+
+      .section-gallery .section-subtitle {
+        color: #f5eae0;
+      }
+
+      .gallery-window {
+        margin-top: 18px;
+        overflow: hidden;
+      }
+
+      .gallery-track {
+        display: flex;
+        gap: 18px;
+        animation: gallery-scroll 32s linear infinite;
+      }
+
+      .gallery-item {
+        flex: 0 0 260px;
+        height: 220px;
+        border-radius: 14px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        box-shadow: 0 14px 26px rgba(0, 0, 0, 0.35);
+      }
+
+      .gallery-item.dark {
+        background-color: #2a231f;
+      }
+
+      .gallery-item.dark::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.45),
+          transparent 40%
+        );
+      }
+
+      .gallery-item.light {
+        background-color: #fdf7f0;
+      }
+
+      .gallery-label {
+        position: absolute;
+        bottom: 10px;
+        left: 12px;
+        z-index: 2;
+        font-size: 0.75rem;
+        color: #ffffff;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+      }
+
+      .g1 {
+        background-image: url("./images/BOOM3.jpg");
+      }
+      .g2 {
+        background-image: url("./images/BOOM4.jpg");
+      }
+      .g3 {
+        background-image: url("./images/SCI-01.jpg");
+      }
+      .g4 {
+        background-image: url("./images/SCI-03.jpg");
+      }
+      .g5 {
+        background-image: url("./images/BOOM5.jpg");
+      }
+      .g6 {
+        background-image: url("./images/SCI-02.jpg");
+      }
+
+      @keyframes gallery-scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* ============ ENQUIRY (WHITE, TEXT + FORM CENTERED) ============ */
+
+      .enquiry-section {
+        margin-top: 40px;
+        margin-bottom: 28px;
+        background: #ffffff;
+      }
+
+      .contact-home-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+        gap: 32px;
+        align-items: center;
+      }
+
+      .contact-text {
+        font-size: 0.9rem;
+        color: var(--text-main);
+      }
+
+      .contact-mini-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px 20px;
+        margin-top: 18px;
+        font-size: 0.82rem;
+        color: var(--text-main);
+      }
+
+      .contact-field-label {
+        font-weight: 600;
+        color: var(--brand-brown);
+        margin-bottom: 2px;
+        display: block;
+      }
+
+      /* ============ REVEAL ANIMATIONS ============ */
+
+      .reveal-left,
+      .reveal-right {
+        opacity: 0;
+        transform: translateX(26px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+      }
+
+      .reveal-left {
+        transform: translateX(-26px);
+      }
+
+      .reveal-visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      /* ============ RESPONSIVE ============ */
+
+      @media (max-width: 900px) {
+        .services-grid-cards {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .why-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .industries-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .gallery-item {
+          flex-basis: 220px;
+          height: 210px;
+        }
+
+        .contact-home-layout {
+          grid-template-columns: minmax(0, 1fr);
+          align-items: flex-start;
+        }
+
+        .hero-center-content {
+          padding: 72px 16px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        
+        main {
+          padding-inline: 12px;
+        }
+
+        .industries-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .section-block {
+          padding: 20px 14px;
+        }
+
+        .gallery-item {
+          flex-basis: 200px;
+          height: 200px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- NAVBAR (loaded from external file) -->
+    <div id="navbar"></div>
+
+    <!-- HERO – centered text over background image -->
+    <header class="hero-wrapper">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-center-content">
+        <div class="hero-eyebrow">Access Equipment Rental · Coimbatore</div>
+        <h1 class="hero-title">Boom & Scissor Lift Rental in Coimbatore</h1>
+        <p class="hero-subtitle">
+          Affordable & reliable equipment for construction and maintenance projects across
+          Coimbatore.
+        </p>
+        <a href="contact.html" class="btn-primary">« Get Quote »</a>
+      </div>
+    </header>
+
+    <main>
+      <div class="sections">
+        <!-- SERVICES (CENTERED HEADER + LARGE CARDS) -->
+        <section class="section-block reveal-left services-section-center">
+          <div class="services-header">
+            <div class="section-subtitle">Services · Coimbatore</div>
+            <h2 class="section-title">Services we offer & areas we serve</h2>
+
+            <p>
+              We focus exclusively on access equipment rentals in and around
+              <strong>Coimbatore</strong> – supporting industrial estates, factories,
+              commercial buildings, and construction sites.
+            </p>
+            <p>
+              Whether your work is in
+              <strong>Ganapathy, Saravanampatti, Avinashi Road, Pollachi Road, or
+                SIPCOT</strong>, we can plan delivery, setup, and pickup based on your
+              shift timings.
+            </p>
+
+            <div class="services-pill">
+              <span class="services-pill-dot"></span>
+              <span>Coimbatore city · Suburbs · Industrial zones</span>
+            </div>
+          </div>
+
+          <div class="services-grid-cards">
+            <article class="service-card-large">
+              <div class="service-card-title">Boom Lift Rental</div>
+              <p>
+                Ideal for façade work, signage, glazing, and outdoor maintenance across
+                Coimbatore’s commercial and industrial buildings.
+              </p>
+            </article>
+
+            <article class="service-card-large">
+              <div class="service-card-title">Scissor Lift Rental</div>
+              <p>
+                Perfect for indoor work in malls, factories, and warehouses where stable
+                vertical access is required within Coimbatore.
+              </p>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- WHY US – FULL-WIDTH DARK BAND -->
+    <section class="section-why reveal-right">
+      <div class="section-why-inner">
+        <div class="section-subtitle">Why us</div>
+        <h2 class="section-title">Why choose Boomlift Rentals Coimbatore?</h2>
+
+        <div class="why-grid">
+          <div class="why-image"></div>
+
+          <div>
+            <p class="why-text">
+              We combine reliable machines with responsive support, focused specifically on
+              Coimbatore’s industrial and commercial needs.
+            </p>
+
+            <div class="why-features">
+              <div class="why-item">
+                <div class="why-icon">24</div>
+                <span>24/7 Support</span>
+              </div>
+              <div class="why-item">
+                <div class="why-icon">₹</div>
+                <span>Competitive Pricing</span>
+              </div>
+              <div class="why-item">
+                <div class="why-icon">OP</div>
+                <span>Experienced Operators</span>
+              </div>
+              <div class="why-item">
+                <div class="why-icon">MT</div>
+                <span>Well-Maintained Machines</span>
+              </div>
+              <div class="why-item">
+                <div class="why-icon">DL</div>
+                <span>Fast Delivery Across Coimbatore</span>
+              </div>
+              <div class="why-item">
+                <div class="why-icon">SF</div>
+                <span>Safety & Compliance Assured</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <div class="sections">
+        <!-- INDUSTRIES -->
+        <section class="section-block reveal-left">
+          <div class="section-subtitle">Industries</div>
+          <h2 class="section-title">Industries we serve</h2>
+
+          <p style="font-size: 0.9rem;">
+            Our boom and scissor lifts are used for a wide range of work across
+            Coimbatore’s industrial and commercial segments.
+          </p>
+
+          <div class="industries-grid">
+            <article class="industry-card">
+              <div class="industry-icon">CS</div>
+              <div class="industry-title">Construction Sites</div>
+              <div class="industry-text">
+                Safe height access for façade work, cladding, painting, and structure
+                finishing.
+              </div>
+            </article>
+
+            <article class="industry-card">
+              <div class="industry-icon">FM</div>
+              <div class="industry-title">Factory Maintenance</div>
+              <div class="industry-text">
+                Access for plant shutdown work, maintenance of cranes, pipelines, and
+                structures.
+              </div>
+            </article>
+
+            <article class="industry-card">
+              <div class="industry-icon">WH</div>
+              <div class="industry-title">Warehouse & Storage</div>
+              <div class="industry-text">
+                Ideal for racking installation, light fitting, and roof inspection in
+                warehouses.
+              </div>
+            </article>
+
+            <article class="industry-card">
+              <div class="industry-icon">EV</div>
+              <div class="industry-title">Event Setup</div>
+              <div class="industry-text">
+                Support for temporary structures, lighting rigs, stage and branding setup.
+              </div>
+            </article>
+
+            <article class="industry-card">
+              <div class="industry-icon">EL</div>
+              <div class="industry-title">Electrical / HVAC</div>
+              <div class="industry-text">
+                Cable tray, ducting, and AC installation work at safe heights.
+              </div>
+            </article>
+
+            <article class="industry-card">
+              <div class="industry-icon">CL</div>
+              <div class="industry-title">Cleaning Services</div>
+              <div class="industry-text">
+                Glass cleaning, façade washing, signboard cleaning in high-rise areas.
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- GALLERY – FULL-WIDTH DARK BAND WITH SCROLLING IMAGES -->
+    <section class="section-gallery reveal-right">
+      <div class="section-gallery-inner">
+        <div class="section-subtitle">Gallery</div>
+        <h2 class="section-title">Boom & scissor lifts in action</h2>
+        <p style="font-size: 0.9rem; max-width: 560px;">
+          A quick look at typical rental deployments around Coimbatore industrial zones,
+          factories, and commercial sites.
+        </p>
+
+        <div class="gallery-window">
+          <div class="gallery-track">
+            <!-- first set -->
+            <div class="gallery-item dark g1">
+              <!-- <div class="gallery-label">Factory façade access</div> -->
+            </div>
+            <div class="gallery-item light g2">
+              <!-- <div class="gallery-label">Warehouse indoor work</div> -->
+            </div>
+            <div class="gallery-item dark g3">
+              <!-- <div class="gallery-label">Outdoor maintenance</div> -->
+            </div>
+            <div class="gallery-item light g4">
+              <!-- <div class="gallery-label">Mall ceiling access</div> -->
+            </div>
+            <div class="gallery-item dark g5">
+              <!-- <div class="gallery-label">Signage installation</div> -->
+            </div>
+            <div class="gallery-item light g6">
+              <!-- <div class="gallery-label">Factory shutdown job</div> -->
+            </div>
+
+            <!-- duplicate set for seamless loop -->
+            <div class="gallery-item dark g1">
+              <!-- <div class="gallery-label">Factory façade access</div> -->
+            </div>
+            <div class="gallery-item light g2">
+              <!-- <div class="gallery-label">Warehouse indoor work</div> -->
+            </div>
+            <div class="gallery-item dark g3">
+              <!-- <div class="gallery-label">Outdoor maintenance</div> -->
+            </div>
+            <div class="gallery-item light g4">
+              <!-- <div class="gallery-label">Mall ceiling access</div> -->
+            </div>
+            <div class="gallery-item dark g5">
+              <!-- <div class="gallery-label">Signage installation</div> -->
+            </div>
+            <div class="gallery-item light g6">
+              <!-- <div class="gallery-label">Factory shutdown job</div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <div class="sections">
+        <!-- ENQUIRY – WHITE, TEXT + FORM CENTERED -->
+        <section class="enquiry-section reveal-left">
+          <div class="section-subtitle">Enquiry</div>
+          <h2 class="section-title">Plan your rental for Coimbatore</h2>
+
+          <div class="contact-home-layout">
+            <div class="contact-text">
+              <p>
+                Share your project details – height required, working hours, and location in
+                Coimbatore. We’ll suggest the right boom or scissor lift and send a clear
+                rental proposal.
+              </p>
+
+              <div class="contact-mini-grid">
+                <div>
+                  <span class="contact-field-label">Phone</span>
+                  +91-XXXXXXXXXX
+                </div>
+                <div>
+                  <span class="contact-field-label">Email</span>
+                  info@boomliftrentalcbe.com
+                </div>
+                <div>
+                  <span class="contact-field-label">City</span>
+                  Coimbatore, Tamil Nadu
+                </div>
+                <div>
+                  <span class="contact-field-label">Response</span>
+                  Within working hours
+                </div>
+              </div>
+            </div>
+
+            <!-- form from external file -->
+            <div id="home-enquiry-form"></div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <div id="footer"></div>
+
+    <script>
+      function loadFragment(targetId, url) {
+        var container = document.getElementById(targetId);
+        if (!container) return;
+
+        fetch(url)
+          .then(function (response) {
+            return response.text();
+          })
+          .then(function (html) {
+            container.innerHTML = html;
+          })
+          .catch(function (error) {
+            console.error("Error loading fragment:", url, error);
+          });
+      }
+
+      loadFragment("navbar", "navbar.html");
+      loadFragment("footer", "footer.html");
+      loadFragment("home-enquiry-form", "enquiry-form.html");
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var revealEls = [].slice.call(
+          document.querySelectorAll(".reveal-left, .reveal-right")
+        );
+
+        if ("IntersectionObserver" in window) {
+          var observer = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("reveal-visible");
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.2 }
+          );
+
+          revealEls.forEach(function (el) {
+            observer.observe(el);
+          });
+        } else {
+          revealEls.forEach(function (el) {
+            el.classList.add("reveal-visible");
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

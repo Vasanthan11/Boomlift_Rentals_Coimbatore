@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Contact – Boom & Scissor Lift Rental in Coimbatore</title>
+  <title>Contact – Boom Lift & Scissor Lift Rental in Coimbatore</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <style>
@@ -59,7 +59,7 @@
       justify-content:center;
     }
     .hero-title{ font-size:clamp(2rem,3vw,2.6rem); }
-    .hero-subtext{ max-width:600px; margin:10px auto 0; color:#f3e4d4;}
+    .hero-subtext{ max-width:600px; margin:10px auto 0; color:#f3e4d4; font-size: 1.5rem;}
 
     main{ max-width:1120px; margin:0 auto; padding:0 16px 60px; }
 
@@ -69,7 +69,7 @@
       color:var(--brand-brown);
     }
     .section-subtitle{
-      font-size:0.85rem;
+      font-size:1rem;
       color:var(--text-muted);
       text-transform:uppercase;
       letter-spacing:0.2em;
@@ -97,14 +97,14 @@
       border-radius:10px;
       padding:10px;
       text-align:center;
-      font-size:0.9rem;
+      font-size:1rem;
       box-shadow:var(--shadow-soft);
     }
 
     /* ===== IFRAME FORM ===== */
     iframe{
       width:100%;
-      height:520px;
+      height:700px;
       border:none;
 
     }
@@ -112,6 +112,76 @@
       iframe{ height:510px;}
       main{ padding-inline:10px;}
     }
+
+         .modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 9000;
+}
+.modal-content {
+  background: white;
+  padding: 24px;
+  width: 90%;
+  max-width: 520px;
+  border-radius: 12px;
+  position: relative;
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+ .btn-primary {
+        display: inline-block;
+        width: fit-content;
+        padding: 10px 22px;
+        border-radius: 999px;
+        background: #FFA500;
+        color: #ffffff;
+        border: none;
+        font-weight: 600;
+        font-size: 1rem;
+        text-decoration: none;
+        cursor: pointer;
+        box-shadow: 0 10px 22px rgba(112, 80, 51, 0.4);
+      }
+
+      .btn-primary:hover {
+        background: #FF7700;
+        box-shadow: 0 12px 26px rgba(112, 80, 51, 0.5);
+      }
+
+/* Styling for the WhatsApp Button */
+.btn-whatsapp {
+    /* Retain original button look */
+    width: fit-content;
+    padding: 12px 10px;
+    border-radius: 999px;
+    border: none;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    text-align: center; /* Center the text */
+    text-decoration: none; /* Remove underline for a button look */
+    display: inline-block;
+    
+    /* New WhatsApp Colors */
+    background-color: #25D366; /* Official WhatsApp Green */
+    color: #FFFFFF; /* White text for contrast */
+}
+
+.btn-whatsapp:hover {
+    background-color: #128C7E; /* Darker green on hover */
+}
   </style>
 </head>
 
@@ -124,12 +194,20 @@
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
 
-    <div class="hero-center">
+    <div class="hero-center" style="align-items: center;">
       <h1 class="hero-title">Contact Us</h1>
       <p class="hero-subtext">
         Scissor & Boom Lift Rental in Coimbatore<br>
         Get quick rental quotes & machine availability.
       </p>
+       <a href="javascript:void(0)" class="btn-primary" style="margin-top: 20px;" onclick="openModal()">
+  « Rent Your Boom Lift Now »
+</a> <br>
+<!-- <a href="https://wa.me/917200116047?text=Hello!%20I%20am%20interested%20in%20Boomlift%20or%20Scissor%20Lift%20rentals%20in%20Coimbatore." 
+   class="btn-whatsapp" 
+   target="_blank">
+    Contact on WhatsApp
+</a> -->
     </div>
   </header>
 
@@ -161,7 +239,7 @@
     <section class="section-block">
       <div class="section-subtitle">Enquiry</div>
       <h2 class="section-title">Send us a quick rental enquiry</h2>
-      <p style="max-width:620px;font-size:0.95rem;">
+      <p style="max-width:620px;font-size:1rem;">
         Share working height, duration & site details. We will suggest the correct lift & send quote.
       </p>
 
@@ -173,6 +251,14 @@
   <!-- FOOTER FROM OUTSIDE -->
   <div id="footer"></div>
 
+  <div id="enquiryModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">✖</span>
+    <div id="popup-form-container">Loading form...</div> <!-- form loads here -->
+  </div>
+</div>
+
+
   <script>
     function loadFragment(id, file) {
       fetch(file).then(r => r.text()).then(html => {
@@ -182,5 +268,26 @@
     loadFragment("navbar", "navbar.html");
     loadFragment("footer", "footer.html");
   </script>
+
+  
+    <script>
+  function openModal() {
+    document.getElementById("enquiryModal").style.display = "flex";
+
+    // Load your existing enquiry-form.html inside popup
+    fetch("enquiry-form.html")
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById("popup-form-container").innerHTML = html;
+      })
+      .catch(error => {
+        document.getElementById("popup-form-container").innerHTML = "<p>Error loading form.</p>";
+      });
+  }
+
+  function closeModal() {
+    document.getElementById("enquiryModal").style.display = "none";
+  }
+</script>
 </body>
 </html>

@@ -57,7 +57,7 @@
       }
 
       .section-subtitle {
-        font-size: 0.85rem;
+        font-size: 1rem;
         color: var(--text-muted);
         text-transform: uppercase;
         letter-spacing: 0.18em;
@@ -122,7 +122,7 @@
       }
 
       .hero-subtitle {
-        font-size: 1rem;
+        font-size: 1.5rem;
         max-width: 560px;
         margin: 0 auto;
         color: #f3e4d4;
@@ -285,7 +285,7 @@
         background: #ffffff;
         color: var(--brand-brown);
         font-weight: 600;
-        font-size: 0.85rem;
+        font-size: 1rem;
         text-decoration: none;
         border: none;
         cursor: pointer;
@@ -304,8 +304,8 @@
         gap: 16px;
       }
 
-      .industry-card {
-        background: #ffffff;
+  .industry-card {
+        background: #705033;
         border-radius: 12px;
         padding: 12px 11px;
         border: 1px solid var(--border-soft);
@@ -330,12 +330,13 @@
 
       .industry-title {
         font-weight: 600;
-        color: var(--brand-brown);
+        font-size: 1.5rem;
+        color: white;
       }
 
       .industry-text {
-        color: var(--text-main);
-        font-size: 0.82rem;
+        color: white;
+        font-size: 1rem;
       }
 
       /* ================= ENQUIRY ================= */
@@ -354,7 +355,7 @@
       }
 
       .contact-text {
-        font-size: 0.9rem;
+        font-size: 1rem;
         color: var(--text-main);
       }
 
@@ -363,7 +364,7 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 12px 20px;
         margin-top: 18px;
-        font-size: 0.82rem;
+        font-size: 1rem;
         color: var(--text-main);
       }
 
@@ -430,9 +431,80 @@
         }
 
         .boom-types-table {
-          font-size: 0.84rem;
+          font-size: 1rem;
         }
       }
+
+      
+         .modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 9000;
+}
+.modal-content {
+  background: white;
+  padding: 24px;
+  width: 90%;
+  max-width: 520px;
+  border-radius: 12px;
+  position: relative;
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+ .btn-primary {
+        display: inline-block;
+        width: fit-content;
+        padding: 10px 22px;
+        border-radius: 999px;
+        background: #FFA500;
+        color: #ffffff;
+        border: none;
+        font-weight: 600;
+        font-size: 1rem;
+        text-decoration: none;
+        cursor: pointer;
+        box-shadow: 0 10px 22px rgba(112, 80, 51, 0.4);
+      }
+
+      .btn-primary:hover {
+        background: #FF7700;
+        box-shadow: 0 12px 26px rgba(112, 80, 51, 0.5);
+      }
+
+/* Styling for the WhatsApp Button */
+.btn-whatsapp {
+    /* Retain original button look */
+    width: fit-content;
+    padding: 12px 10px;
+    border-radius: 999px;
+    border: none;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    text-align: center; /* Center the text */
+    text-decoration: none; /* Remove underline for a button look */
+    display: inline-block;
+    
+    /* New WhatsApp Colors */
+    background-color: #25D366; /* Official WhatsApp Green */
+    color: #FFFFFF; /* White text for contrast */
+}
+
+.btn-whatsapp:hover {
+    background-color: #128C7E; /* Darker green on hover */
+}
     </style>
   </head>
 
@@ -448,12 +520,20 @@
       <div class="hero-center-content">
         <div class="hero-eyebrow">Boom Lifts · Coimbatore</div>
         <h1 class="hero-title">
-          Boom Lift Rental in Coimbatore – Diesel & Electric Types
+          Boom Lift Rental in Coimbatore <br> Diesel & Electric Types
         </h1>
         <p class="hero-subtitle">
         Well-maintained boom lifts for construction, maintenance, electrical
           works & industry needs.
         </p>
+         <a href="javascript:void(0)" class="btn-primary" style="margin-top: 20px;" onclick="openModal()">
+  « Rent Your Boom Lift Now »
+</a> <br>
+<!-- <a href="https://wa.me/917200116047?text=Hello!%20I%20am%20interested%20in%20Boomlift%20or%20Scissor%20Lift%20rentals%20in%20Coimbatore." 
+   class="btn-whatsapp" 
+   target="_blank">
+    Contact on WhatsApp
+</a> -->
       </div>
     </header>
 
@@ -463,7 +543,7 @@
         <section class="section-block slider-section reveal-left">
           <div class="section-subtitle">Equipment</div>
           <h2 class="section-title">Real photos of our boom lifts</h2>
-          <p style="font-size: 0.9rem;">
+          <p style="font-size: 1rem;">
             A quick view of typical boom lifts available for short-term and
             long-term rental in Coimbatore.
           </p>
@@ -471,30 +551,30 @@
           <div class="slider-window">
             <div class="slider-track">
               <!-- first set -->
-              <div class="slider-item b1">
+              <div class="slider-item b1" onclick="openModal()" style="cursor:pointer;">
                 <!-- <div class="slider-label">Articulated boom lift on site</div> -->
               </div>
-              <div class="slider-item b2">
+              <div class="slider-item b2" onclick="openModal()" style="cursor:pointer;">
                 <!-- <div class="slider-label">Telescopic boom for façade work</div> -->
               </div>
-              <div class="slider-item b3">
+              <div class="slider-item b3" onclick="openModal()" style="cursor:pointer;">
                 <!-- <div class="slider-label">Electric boom for indoor projects</div> -->
               </div>
-              <div class="slider-item b4">
+              <div class="slider-item b4" onclick="openModal()" style="cursor:pointer;">
                 <!-- <div class="slider-label">Truck-mounted boom – outdoor reach</div> -->
               </div>
 
               <!-- duplicate set for continuous scroll -->
-              <div class="slider-item b1">
+              <div class="slider-item b1" onclick="openModal()" style="cursor:pointer;">
                 <!-- <div class="slider-label">Articulated boom lift on site</div> -->
               </div>
-              <div class="slider-item b2">
+              <div class="slider-item b2" onclick="openModal()" style="cursor:pointer;">
                 <!-- <div class="slider-label">Telescopic boom for façade work</div> -->
               </div>
-              <div class="slider-item b3">
+              <div class="slider-item b3" onclick="openModal()" style="cursor:pointer;">
                 <!-- <div class="slider-label">Electric boom for indoor projects</div> -->
               </div>
-              <div class="slider-item b4">
+              <div class="slider-item b4" onclick="openModal()" style="cursor:pointer;">
                 <!-- <div class="slider-label">Truck-mounted boom – outdoor reach</div> -->
               </div>
             </div>
@@ -505,7 +585,7 @@
         <section class="section-boom-brown reveal-right">
           <div class="section-subtitle">Boom lift range</div>
           <h2 class="section-title">Boom lift types & specifications</h2>
-          <p style="font-size: 0.9rem;">
+          <p style="font-size: 1rem;">
             Choose from diesel and electric boom lifts depending on working
             height, reach, and site conditions.
           </p>
@@ -526,29 +606,29 @@
                   <td>Articulated Boom Lift</td>
                   <td>20–60 ft</td>
                   <td>Diesel</td>
-                  <td><span class="badge-white">Available</span></td>
-                  <td><a href="contact.html" class="btn-quote-white">Get Quote</a></td>
+                  <!-- <td><span class="badge-white">Available</span></td> -->
+                  <td><a class="btn-quote-white" onclick="openModal()" style="cursor:pointer;">Get Quote</a></td>
                 </tr>
                 <tr>
                   <td>Telescopic Boom Lift</td>
                   <td>30–80 ft</td>
                   <td>Diesel</td>
-                  <td><span class="badge-white">Available</span></td>
-                  <td><a href="contact.html" class="btn-quote-white">Get Quote</a></td>
+                  <!-- <td><span class="badge-white">Available</span></td> -->
+                  <td><a class="btn-quote-white" onclick="openModal()" style="cursor:pointer;">Get Quote</a></td>
                 </tr>
                 <tr>
                   <td>Truck Mounted Lift</td>
                   <td>Up to 100 ft</td>
                   <td>Diesel</td>
-                  <td><span class="badge-white">Available</span></td>
-                  <td><a href="contact.html" class="btn-quote-white">Get Quote</a></td>
+                  <!-- <td><span class="badge-white">Available</span></td> -->
+                  <td><a class="btn-quote-white" onclick="openModal()" style="cursor:pointer;">Get Quote</a></td>
                 </tr>
                 <tr>
                   <td>Electric Boom Lift</td>
                   <td>20–40 ft</td>
                   <td>Battery</td>
-                  <td><span class="badge-white">Available</span></td>
-                  <td><a href="contact.html" class="btn-quote-white">Get Quote</a></td>
+                  <!-- <td><span class="badge-white">Available</span></td> -->
+                  <td><a class="btn-quote-white" onclick="openModal()" style="cursor:pointer;">Get Quote</a></td>
                 </tr>
               </tbody>
             </table>
@@ -559,14 +639,14 @@
         <section class="section-block reveal-left">
           <div class="section-subtitle">Applications</div>
           <h2 class="section-title">Industries that use boom lifts</h2>
-          <p style="font-size: 0.9rem;">
+          <p style="font-size: 1rem;">
             Boom lifts are used wherever safe height access is required with
             outreach and flexibility.
           </p>
 
           <div class="industries-grid">
             <article class="industry-card">
-              <div class="industry-icon">CB</div>
+              <!-- <div class="industry-icon">CB</div> -->
               <div class="industry-title">Construction & Building</div>
               <div class="industry-text">
                 Elevated access for façade work, cladding, structures, and
@@ -575,7 +655,7 @@
             </article>
 
             <article class="industry-card">
-              <div class="industry-icon">FM</div>
+              <!-- <div class="industry-icon">FM</div> -->
               <div class="industry-title">Factory / Industrial Maintenance</div>
               <div class="industry-text">
                 Ideal for shutdown work, equipment servicing, and structural
@@ -584,7 +664,7 @@
             </article>
 
             <article class="industry-card">
-              <div class="industry-icon">WH</div>
+              <!-- <div class="industry-icon">WH</div> -->
               <div class="industry-title">Warehouse Installation</div>
               <div class="industry-text">
                 Racking, mezzanine, and roof work where reach is required.
@@ -592,7 +672,7 @@
             </article>
 
             <article class="industry-card">
-              <div class="industry-icon">EL</div>
+              <!-- <div class="industry-icon">EL</div> -->
               <div class="industry-title">Electrical / HVAC</div>
               <div class="industry-text">
                 Cable trays, lighting, ducting, and AC installation at height.
@@ -600,7 +680,7 @@
             </article>
 
             <article class="industry-card">
-              <div class="industry-icon">CP</div>
+              <!-- <div class="industry-icon">CP</div> -->
               <div class="industry-title">Cleaning & Painting</div>
               <div class="industry-text">
                 Glass cleaning, façade washing, and exterior painting jobs.
@@ -608,7 +688,7 @@
             </article>
 
             <article class="industry-card">
-              <div class="industry-icon">EV</div>
+              <!-- <div class="industry-icon">EV</div> -->
               <div class="industry-title">Event Setup & Lighting</div>
               <div class="industry-text">
                 Truss, lighting rigs, and branding setup for events and shows.
@@ -632,20 +712,26 @@
 
               <div class="contact-mini-grid">
                 <div>
-                  <span class="contact-field-label">Phone</span>
-                  +91-XXXXXXXXXX
-                </div>
-                <div>
-                  <span class="contact-field-label">Email</span>
-                  info@boomliftrentalcbe.com
-                </div>
+  <span class="contact-field-label">Phone</span>
+  <a href="tel:+917200116047" style="text-decoration:none; color:var(--text-main); font-weight:600;">
+    +91 7200116047
+  </a>
+</div>
+
+<div>
+  <span class="contact-field-label">Email</span>
+  <a href="mailto:info@boomliftrentalcbe.com" style="text-decoration:none; color:var(--text-main); font-weight:600;">
+    info@boomliftrentalcbe.com
+  </a>
+</div>
+
                 <div>
                   <span class="contact-field-label">City</span>
                   Coimbatore, Tamil Nadu
                 </div>
                 <div>
                   <span class="contact-field-label">Response</span>
-                  Within working hours
+                 Mon-Sat (9.00 AM - 6.00)
                 </div>
               </div>
             </div>
@@ -659,6 +745,13 @@
 
     <!-- FOOTER FROM OUTSIDE -->
     <div id="footer"></div>
+
+     <div id="enquiryModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">✖</span>
+    <div id="popup-form-container">Loading form...</div> <!-- form loads here -->
+  </div>
+</div>
 
     <script>
       function loadFragment(targetId, url) {
@@ -710,5 +803,24 @@
         }
       });
     </script>
+     <script>
+  function openModal() {
+    document.getElementById("enquiryModal").style.display = "flex";
+
+    // Load your existing enquiry-form.html inside popup
+    fetch("enquiry-form.html")
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById("popup-form-container").innerHTML = html;
+      })
+      .catch(error => {
+        document.getElementById("popup-form-container").innerHTML = "<p>Error loading form.</p>";
+      });
+  }
+
+  function closeModal() {
+    document.getElementById("enquiryModal").style.display = "none";
+  }
+</script>
   </body>
 </html>

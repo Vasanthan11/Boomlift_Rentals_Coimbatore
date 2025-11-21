@@ -1,7 +1,9 @@
-<nav class="navbar-shell">
+<nav class="navbar-shell" style="align-items: center;">
   <div class="navbar-inner">
     <div class="logo">
-      <a href="index.html">Boomlift Rentals Coimbatore</a>
+      <a href="index.html" class="logo-link">
+    BOOMLIFT RENTALS <br><span class="location">COIMBATORE</span>
+</a>
     </div>
 
     <!-- Hamburger toggle -->
@@ -19,12 +21,33 @@
     </ul>
   </div>
 
+  <div class="whats" style="margin-left: 20px;">
+    <a href="https://wa.me/917200116047?text=Hello!%20I%20am%20interested%20in%20Boomlift%20or%20Scissor%20Lift%20rentals%20in%20Coimbatore." 
+   class="btn-whatsapp" 
+   target="_blank">
+    Contact on WhatsApp
+</a>
+  </div>
   <style>
     :root {
       --brand-brown: #705033;
       --nav-radius: 16px;
     }
 
+    .logo-link {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-size: 32px;        /* Adjust for logo size */
+    font-weight: 800;       /* Make it Extra Bold */
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: #FF7700;         /* Primary Color (e.g., Orange for Boomlift) */
+}
+
+.logo-link .location {
+    color: #FFA500;   
+    font-size: 26px;      /* Secondary Color (e.g., Dark Gray/Black for Coimbatore) */
+}
     .navbar-shell {
       position: sticky;
       top: 0;
@@ -134,15 +157,20 @@
     }
 
     @media (max-width: 768px) {
+
+      .whats{
+        display: none;
+      }
       .navbar-inner {
         padding-inline: 14px;
       }
 
       .nav-links {
         position: absolute;
+        z-index: -10;
         left: 0;
         right: 0;
-        top: 58px;
+        top: 90px;
         max-width: 1120px;
         margin-inline: auto;
         background: #ffffff;

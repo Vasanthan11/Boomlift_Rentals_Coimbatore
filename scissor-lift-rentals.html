@@ -56,7 +56,7 @@
       }
 
       .section-subtitle {
-        font-size: 0.85rem;
+        font-size: 1rem;
         color: var(--text-muted);
         text-transform: uppercase;
         letter-spacing: 0.18em;
@@ -119,6 +119,8 @@
       .hero-subtitle {
         color: #f3e4d4;
         max-width: 560px;
+        font-size: 1.5rem;
+        margin: 5px 0px;
       }
 
       /* ========== COMMON SECTIONS ========== */
@@ -204,12 +206,13 @@
       }
 
       .feature-card {
-        background: #ffffff;
+        background: var(--brand-brown);
+        color: white;
         border-radius: 14px;
         padding: 14px 12px;
         border: 1px solid var(--border-soft);
         box-shadow: var(--shadow-soft);
-        font-size: 0.9rem;
+        font-size: 1rem;
         display: flex;
         gap: 10px;
         align-items: flex-start;
@@ -249,7 +252,7 @@
 
       .safety-subtext {
         color: #f3e4d4;
-        font-size: 0.95rem;
+        font-size: 1rem;
         margin-bottom: 20px;
       }
 
@@ -288,7 +291,7 @@
       }
 
       .contact-text {
-        font-size: 0.9rem;
+        font-size: 1rem;
         color: var(--text-main);
       }
 
@@ -297,7 +300,7 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 12px 20px;
         margin-top: 18px;
-        font-size: 0.82rem;
+        font-size: 1rem;
       }
 
       .contact-field-label {
@@ -372,6 +375,77 @@
           grid-template-columns: minmax(0, 1fr);
         }
       }
+
+      
+         .modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 9000;
+}
+.modal-content {
+  background: white;
+  padding: 24px;
+  width: 90%;
+  max-width: 520px;
+  border-radius: 12px;
+  position: relative;
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+ .btn-primary {
+        display: inline-block;
+        width: fit-content;
+        padding: 10px 22px;
+        border-radius: 999px;
+        background: #FFA500;
+        color: #ffffff;
+        border: none;
+        font-weight: 600;
+        font-size: 1rem;
+        text-decoration: none;
+        cursor: pointer;
+        box-shadow: 0 10px 22px rgba(112, 80, 51, 0.4);
+      }
+
+      .btn-primary:hover {
+        background: #FF7700;
+        box-shadow: 0 12px 26px rgba(112, 80, 51, 0.5);
+      }
+
+/* Styling for the WhatsApp Button */
+.btn-whatsapp {
+    /* Retain original button look */
+    width: fit-content;
+    padding: 12px 10px;
+    border-radius: 999px;
+    border: none;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    text-align: center; /* Center the text */
+    text-decoration: none; /* Remove underline for a button look */
+    display: inline-block;
+    
+    /* New WhatsApp Colors */
+    background-color: #25D366; /* Official WhatsApp Green */
+    color: #FFFFFF; /* White text for contrast */
+}
+
+.btn-whatsapp:hover {
+    background-color: #128C7E; /* Darker green on hover */
+}
     </style>
   </head>
 
@@ -384,15 +458,24 @@
       <div class="hero-bg"></div>
       <div class="hero-overlay"></div>
       <div class="hero-center-content">
-        <div class="hero-eyebrow">Scissor Lifts · Coimbatore</div>
+        <div class="hero-eyebrow">SCISSOR LIFTS · COIMBATORE</div>
         <h1 class="hero-title">
-          Scissor Lift Rental in Coimbatore – Indoor & Outdoor Use
+          Scissor Lift Rental in Coimbatore <br> Indoor & Outdoor Use
         </h1>
         <p class="hero-subtitle">
           Safe & stable scissor lifts for factory, warehouse, malls, and
           building works.
         </p>
+         <a href="javascript:void(0)" class="btn-primary" style="margin-top: 20px;" onclick="openModal()">
+  « Rent Your Boom Lift Now »
+</a> <br>
+<!-- <a href="https://wa.me/917200116047?text=Hello!%20I%20am%20interested%20in%20Boomlift%20or%20Scissor%20Lift%20rentals%20in%20Coimbatore." 
+   class="btn-whatsapp" 
+   target="_blank">
+    Contact on WhatsApp
+</a> -->
       </div>
+      
     </header>
 
     <!-- MAIN CONTENT -->
@@ -418,28 +501,28 @@
               <td>Up to 19 ft</td>
               <td>Battery</td>
               <td>Indoor malls / factory</td>
-              <td><a href="contact.html" class="btn-quote">Get Quote</a></td>
+              <td><a class="btn-quote" onclick="openModal()" style="cursor:pointer;">Get Quote</a></td>
             </tr>
             <tr>
               <td>Electric 26 ft</td>
               <td>Up to 26 ft</td>
               <td>Battery</td>
               <td>Warehouse / stores</td>
-              <td><a href="contact.html" class="btn-quote">Get Quote</a></td>
+              <td><a class="btn-quote" onclick="openModal()" style="cursor:pointer;">Get Quote</a></td>
             </tr>
             <tr>
               <td>Rough Terrain 40 ft</td>
               <td>Up to 40 ft</td>
               <td>Diesel</td>
               <td>Outdoor construction</td>
-              <td><a href="contact.html" class="btn-quote">Get Quote</a></td>
+              <td><a class="btn-quote" onclick="openModal()" style="cursor:pointer;">Get Quote</a></td>
             </tr>
             <tr>
               <td>Compact Scissor Lift</td>
               <td>10–16 ft</td>
               <td>Battery</td>
               <td>Small indoor areas</td>
-              <td><a href="contact.html" class="btn-quote">Get Quote</a></td>
+              <td><a class="btn-quote" onclick="openModal()" style="cursor:pointer;">Get Quote</a></td>
             </tr>
           </tbody>
         </table>
@@ -484,27 +567,27 @@
 
         <div class="features-grid">
           <article class="feature-card">
-            <div class="feature-icon">ST</div>
+            <!-- <div class="feature-icon">ST</div> -->
             <div>Stable & safe working platform</div>
           </article>
           <article class="feature-card">
-            <div class="feature-icon">IN</div>
+            <!-- <div class="feature-icon">IN</div> -->
             <div>Ideal for narrow indoor areas</div>
           </article>
           <article class="feature-card">
-            <div class="feature-icon">NO</div>
+            <!-- <div class="feature-icon">NO</div> -->
             <div>Low noise & zero emission (electric)</div>
           </article>
           <article class="feature-card">
-            <div class="feature-icon">GR</div>
+            <!-- <div class="feature-icon">GR</div> -->
             <div>Guard rails & safety controls</div>
           </article>
           <article class="feature-card">
-            <div class="feature-icon">MT</div>
+            <!-- <div class="feature-icon">MT</div> -->
             <div>Regularly maintained machines</div>
           </article>
           <article class="feature-card">
-            <div class="feature-icon">CB</div>
+            <!-- <div class="feature-icon">CB</div> -->
             <div>Used in factories, warehouses & malls</div>
           </article>
         </div>
@@ -552,23 +635,29 @@
             </p>
 
             <div class="contact-mini-grid">
-              <div>
-                <span class="contact-field-label">Phone</span>
-                +91-XXXXXXXXXX
+                <div>
+  <span class="contact-field-label">Phone</span>
+  <a href="tel:+917200116047" style="text-decoration:none; color:var(--text-main); font-weight:600;">
+    +91 7200116047
+  </a>
+</div>
+
+<div>
+  <span class="contact-field-label">Email</span>
+  <a href="mailto:info@boomliftrentalcbe.com" style="text-decoration:none; color:var(--text-main); font-weight:600;">
+    info@boomliftrentalcbe.com
+  </a>
+</div>
+
+                <div>
+                  <span class="contact-field-label">City</span>
+                  Coimbatore, Tamil Nadu
+                </div>
+                <div>
+                  <span class="contact-field-label">Response</span>
+                 Mon-Sat (9.00 AM - 6.00)
+                </div>
               </div>
-              <div>
-                <span class="contact-field-label">Email</span>
-                info@boomliftrentalcbe.com
-              </div>
-              <div>
-                <span class="contact-field-label">City</span>
-                Coimbatore, Tamil Nadu
-              </div>
-              <div>
-                <span class="contact-field-label">Response</span>
-                Within working hours
-              </div>
-            </div>
           </div>
 
           <!-- Right: image + external form in card -->
@@ -582,6 +671,13 @@
 
     <!-- FOOTER -->
     <div id="footer"></div>
+
+     <div id="enquiryModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">✖</span>
+    <div id="popup-form-container">Loading form...</div> <!-- form loads here -->
+  </div>
+</div>
 
     <script>
       function loadFragment(id, file) {
@@ -630,5 +726,24 @@
         }
       });
     </script>
+     <script>
+  function openModal() {
+    document.getElementById("enquiryModal").style.display = "flex";
+
+    // Load your existing enquiry-form.html inside popup
+    fetch("enquiry-form.html")
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById("popup-form-container").innerHTML = html;
+      })
+      .catch(error => {
+        document.getElementById("popup-form-container").innerHTML = "<p>Error loading form.</p>";
+      });
+  }
+
+  function closeModal() {
+    document.getElementById("enquiryModal").style.display = "none";
+  }
+</script>
   </body>
 </html>

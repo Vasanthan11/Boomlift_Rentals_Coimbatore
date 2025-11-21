@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Boomlift Rentals Coimbatore – Boom & Scissor Lift Rental</title>
+    <title>BoomLifts  Rentals Coimbatore – Boom Lifts & Scissor Lifts  Rental</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <style>
@@ -66,7 +66,7 @@
 
       .hero-wrapper {
         position: relative;
-        min-height: 80vh;
+        min-height: 90vh;
         overflow: hidden;
         background: #000; /* fallback if image fails */
         margin-bottom: 40px;
@@ -126,7 +126,7 @@
       }
 
       .hero-subtitle {
-        font-size: 1rem;
+        font-size: 1.5rem;
         max-width: 520px;
         margin: 0 auto 20px;
         color: #f3e4d4;
@@ -136,7 +136,7 @@
         display: inline-block;
         padding: 10px 22px;
         border-radius: 999px;
-        background: var(--brand-brown);
+        background: #FFA500;
         color: #ffffff;
         border: none;
         font-weight: 600;
@@ -147,7 +147,7 @@
       }
 
       .btn-primary:hover {
-        background: #5b3f27;
+        background: #FF7700;
         box-shadow: 0 12px 26px rgba(112, 80, 51, 0.5);
       }
 
@@ -212,7 +212,7 @@
         border-radius: 14px;
         padding: 14px 14px 16px;
         border: 1px solid var(--border-soft);
-        font-size: 0.9rem;
+        font-size: 1rem;
         text-align: left;
       }
 
@@ -296,7 +296,7 @@
       }
 
       .why-text {
-        font-size: 0.9rem;
+        font-size: 1rem;
         color: #fff7ee;
       }
 
@@ -311,7 +311,7 @@
         display: flex;
         align-items: flex-start;
         gap: 10px;
-        font-size: 0.9rem;
+        font-size: 1rem;
         color: #ffffff;
       }
 
@@ -338,7 +338,7 @@
       }
 
       .industry-card {
-        background: #ffffff;
+        background: #705033;
         border-radius: 12px;
         padding: 12px 11px;
         border: 1px solid var(--border-soft);
@@ -363,12 +363,13 @@
 
       .industry-title {
         font-weight: 600;
-        color: var(--brand-brown);
+        font-size: 1.5rem;
+        color: white;
       }
 
       .industry-text {
-        color: var(--text-main);
-        font-size: 0.82rem;
+        color: white;
+        font-size: 1rem;
       }
 
       /* ============ GALLERY – FULL-WIDTH DARK BAND ============ */
@@ -502,7 +503,7 @@
       }
 
       .contact-text {
-        font-size: 0.9rem;
+        font-size: 1rem;
         color: var(--text-main);
       }
 
@@ -511,7 +512,7 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 12px 20px;
         margin-top: 18px;
-        font-size: 0.82rem;
+        font-size: 1rem;
         color: var(--text-main);
       }
 
@@ -589,6 +590,58 @@
           height: 200px;
         }
       }
+
+      .modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 9000;
+}
+.modal-content {
+  background: white;
+  padding: 24px;
+  width: 90%;
+  max-width: 520px;
+  border-radius: 12px;
+  position: relative;
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+/* Styling for the WhatsApp Button */
+.btn-whatsapp {
+    /* Retain original button look */
+    width: fit-content;
+    padding: 12px 10px;
+    border-radius: 999px;
+    border: none;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    text-align: center; /* Center the text */
+    text-decoration: none; /* Remove underline for a button look */
+    display: inline-block;
+    
+    /* New WhatsApp Colors */
+    background-color: #25D366; /* Official WhatsApp Green */
+    color: #FFFFFF; /* White text for contrast */
+}
+
+.btn-whatsapp:hover {
+    background-color: #128C7E; /* Darker green on hover */
+}
+
+
     </style>
   </head>
 
@@ -603,12 +656,20 @@
 
       <div class="hero-center-content">
         <div class="hero-eyebrow">Access Equipment Rental · Coimbatore</div>
-        <h1 class="hero-title">Boom & Scissor Lift Rental in Coimbatore</h1>
+        <h1 class="hero-title">Boom Lifts & Scissor Lifts  Rental <br> in Coimbatore</h1>
         <p class="hero-subtitle">
           Affordable & reliable equipment for construction and maintenance projects across
           Coimbatore.
         </p>
-        <a href="contact.html" class="btn-primary">« Get Quote »</a>
+        <a href="javascript:void(0)" class="btn-primary" onclick="openModal()">
+  « Rent Your Boom Lifts  Now »
+</a> <br>
+<!-- <a href="https://wa.me/917200116047?text=Hello!%20I%20am%20interested%20in%20BoomLifts %20or%20Scissor%20Lifts %20rentals%20in%20Coimbatore." 
+   class="btn-whatsapp" 
+   target="_blank">
+    Contact on WhatsApp
+</a> -->
+
       </div>
     </header>
 
@@ -637,10 +698,12 @@
               <span>Coimbatore city · Suburbs · Industrial zones</span>
             </div>
           </div>
-
+<a href="javascript:void(0)" class="btn-primary" style="margin-top: 10px; margin-bottom: 20px;" onclick="openModal()">
+  « Rent Your Boom Lifts  Now »
+</a>
           <div class="services-grid-cards">
             <article class="service-card-large">
-              <div class="service-card-title">Boom Lift Rental</div>
+              <div class="service-card-title">Boom Lifts  Rental</div>
               <p>
                 Ideal for façade work, signage, glazing, and outdoor maintenance across
                 Coimbatore’s commercial and industrial buildings.
@@ -648,7 +711,7 @@
             </article>
 
             <article class="service-card-large">
-              <div class="service-card-title">Scissor Lift Rental</div>
+              <div class="service-card-title">Scissor Lifts  Rental</div>
               <p>
                 Perfect for indoor work in malls, factories, and warehouses where stable
                 vertical access is required within Coimbatore.
@@ -663,7 +726,7 @@
     <section class="section-why reveal-right">
       <div class="section-why-inner">
         <div class="section-subtitle">Why us</div>
-        <h2 class="section-title">Why choose Boomlift Rentals Coimbatore?</h2>
+        <h2 class="section-title">Why choose BoomLifts  Rentals Coimbatore?</h2>
 
         <div class="why-grid">
           <div class="why-image"></div>
@@ -700,6 +763,9 @@
                 <span>Safety & Compliance Assured</span>
               </div>
             </div>
+             <a href="javascript:void(0)" class="btn-primary" style="margin-top: 20px;" onclick="openModal()">
+  « Rent Your Boom Lifts  Now »
+</a>
           </div>
         </div>
       </div>
@@ -712,14 +778,14 @@
           <div class="section-subtitle">Industries</div>
           <h2 class="section-title">Industries we serve</h2>
 
-          <p style="font-size: 0.9rem;">
-            Our boom and scissor lifts are used for a wide range of work across
+          <p style="font-size: 1rem;">
+            Our Boom Lifts and scissor Lifts are used for a wide range of work across
             Coimbatore’s industrial and commercial segments.
           </p>
 
           <div class="industries-grid">
             <article class="industry-card">
-              <div class="industry-icon">CS</div>
+              <!-- <div class="industry-icon">CS</div> -->
               <div class="industry-title">Construction Sites</div>
               <div class="industry-text">
                 Safe height access for façade work, cladding, painting, and structure
@@ -728,7 +794,7 @@
             </article>
 
             <article class="industry-card">
-              <div class="industry-icon">FM</div>
+              <!-- <div class="industry-icon">FM</div> -->
               <div class="industry-title">Factory Maintenance</div>
               <div class="industry-text">
                 Access for plant shutdown work, maintenance of cranes, pipelines, and
@@ -737,7 +803,7 @@
             </article>
 
             <article class="industry-card">
-              <div class="industry-icon">WH</div>
+              <!-- <div class="industry-icon">WH</div> -->
               <div class="industry-title">Warehouse & Storage</div>
               <div class="industry-text">
                 Ideal for racking installation, light fitting, and roof inspection in
@@ -746,7 +812,7 @@
             </article>
 
             <article class="industry-card">
-              <div class="industry-icon">EV</div>
+              <!-- <div class="industry-icon">EV</div> -->
               <div class="industry-title">Event Setup</div>
               <div class="industry-text">
                 Support for temporary structures, lighting rigs, stage and branding setup.
@@ -754,7 +820,7 @@
             </article>
 
             <article class="industry-card">
-              <div class="industry-icon">EL</div>
+              <!-- <div class="industry-icon">EL</div> -->
               <div class="industry-title">Electrical / HVAC</div>
               <div class="industry-text">
                 Cable tray, ducting, and AC installation work at safe heights.
@@ -762,7 +828,7 @@
             </article>
 
             <article class="industry-card">
-              <div class="industry-icon">CL</div>
+              <!-- <div class="industry-icon">CL</div> -->
               <div class="industry-title">Cleaning Services</div>
               <div class="industry-text">
                 Glass cleaning, façade washing, signboard cleaning in high-rise areas.
@@ -777,8 +843,8 @@
     <section class="section-gallery reveal-right">
       <div class="section-gallery-inner">
         <div class="section-subtitle">Gallery</div>
-        <h2 class="section-title">Boom & scissor lifts in action</h2>
-        <p style="font-size: 0.9rem; max-width: 560px;">
+        <h2 class="section-title">Boom Lifts & scissor Lifts in action</h2>
+        <p style="font-size: 1rem; max-width: 560px;">
           A quick look at typical rental deployments around Coimbatore industrial zones,
           factories, and commercial sites.
         </p>
@@ -786,42 +852,42 @@
         <div class="gallery-window">
           <div class="gallery-track">
             <!-- first set -->
-            <div class="gallery-item dark g1">
+            <div class="gallery-item dark g1" onclick="openModal()" style="cursor:pointer;">
               <!-- <div class="gallery-label">Factory façade access</div> -->
             </div>
-            <div class="gallery-item light g2">
+            <div class="gallery-item light g2" onclick="openModal()" style="cursor:pointer;">
               <!-- <div class="gallery-label">Warehouse indoor work</div> -->
             </div>
-            <div class="gallery-item dark g3">
+            <div class="gallery-item dark g3" onclick="openModal()" style="cursor:pointer;">
               <!-- <div class="gallery-label">Outdoor maintenance</div> -->
             </div>
-            <div class="gallery-item light g4">
+            <div class="gallery-item light g4" onclick="openModal()" style="cursor:pointer;">
               <!-- <div class="gallery-label">Mall ceiling access</div> -->
             </div>
-            <div class="gallery-item dark g5">
+            <div class="gallery-item dark g5" onclick="openModal()" style="cursor:pointer;">
               <!-- <div class="gallery-label">Signage installation</div> -->
             </div>
-            <div class="gallery-item light g6">
+            <div class="gallery-item light g6" onclick="openModal()" style="cursor:pointer;">
               <!-- <div class="gallery-label">Factory shutdown job</div> -->
             </div>
 
             <!-- duplicate set for seamless loop -->
-            <div class="gallery-item dark g1">
+            <div class="gallery-item dark g1" onclick="openModal()" style="cursor:pointer;">
               <!-- <div class="gallery-label">Factory façade access</div> -->
             </div>
-            <div class="gallery-item light g2">
+            <div class="gallery-item light g2" onclick="openModal()" style="cursor:pointer;">
               <!-- <div class="gallery-label">Warehouse indoor work</div> -->
             </div>
-            <div class="gallery-item dark g3">
+            <div class="gallery-item dark g3" onclick="openModal()" style="cursor:pointer;">
               <!-- <div class="gallery-label">Outdoor maintenance</div> -->
             </div>
-            <div class="gallery-item light g4">
+            <div class="gallery-item light g4" onclick="openModal()" style="cursor:pointer;">
               <!-- <div class="gallery-label">Mall ceiling access</div> -->
             </div>
-            <div class="gallery-item dark g5">
+            <div class="gallery-item dark g5" onclick="openModal()" style="cursor:pointer;">
               <!-- <div class="gallery-label">Signage installation</div> -->
             </div>
-            <div class="gallery-item light g6">
+            <div class="gallery-item light g6" onclick="openModal()" style="cursor:pointer;">
               <!-- <div class="gallery-label">Factory shutdown job</div> -->
             </div>
           </div>
@@ -840,26 +906,32 @@
             <div class="contact-text">
               <p>
                 Share your project details – height required, working hours, and location in
-                Coimbatore. We’ll suggest the right boom or scissor lift and send a clear
+                Coimbatore. We’ll suggest the right Boom Lifts or scissor Lifts  and send a clear
                 rental proposal.
               </p>
 
               <div class="contact-mini-grid">
                 <div>
-                  <span class="contact-field-label">Phone</span>
-                  +91-XXXXXXXXXX
-                </div>
-                <div>
-                  <span class="contact-field-label">Email</span>
-                  info@boomliftrentalcbe.com
-                </div>
+  <span class="contact-field-label">Phone</span>
+  <a href="tel:+917200116047" style="text-decoration:none; color:var(--text-main); font-weight:600;">
+    +91 7200116047
+  </a>
+</div>
+
+<div>
+  <span class="contact-field-label">Email</span>
+  <a href="mailto:info@boomLifts rentalcbe.com" style="text-decoration:none; color:var(--text-main); font-weight:600;">
+    info@boomLifts rentalcbe.com
+  </a>
+</div>
+
                 <div>
                   <span class="contact-field-label">City</span>
                   Coimbatore, Tamil Nadu
                 </div>
                 <div>
                   <span class="contact-field-label">Response</span>
-                  Within working hours
+                 Mon-Sat (9.00 AM - 6.00)
                 </div>
               </div>
             </div>
@@ -873,6 +945,15 @@
 
     <!-- FOOTER -->
     <div id="footer"></div>
+
+    <!-- ===== POPUP WITH DYNAMIC FORM LOADED ===== -->
+<div id="enquiryModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">✖</span>
+    <div id="popup-form-container">Loading form...</div> <!-- form loads here -->
+  </div>
+</div>
+
 
     <script>
       function loadFragment(targetId, url) {
@@ -923,5 +1004,26 @@
         }
       });
     </script>
+
+    <script>
+  function openModal() {
+    document.getElementById("enquiryModal").style.display = "flex";
+
+    // Load your existing enquiry-form.html inside popup
+    fetch("enquiry-form.html")
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById("popup-form-container").innerHTML = html;
+      })
+      .catch(error => {
+        document.getElementById("popup-form-container").innerHTML = "<p>Error loading form.</p>";
+      });
+  }
+
+  function closeModal() {
+    document.getElementById("enquiryModal").style.display = "none";
+  }
+</script>
+
   </body>
 </html>
